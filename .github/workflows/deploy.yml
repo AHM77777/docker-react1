@@ -28,9 +28,9 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./frontend
-          file: Dockerfile.prod
+          file: Dockerfile
           push: true
-          tags: <your repo name>/<your application name>:latest
+          tags: docker-react1/:latest
 
       # - name: Generate build number
       #   id: buildnumber
