@@ -14,6 +14,12 @@ jobs:
       - run: cd ./frontend
       - run: docker run -e CI=true cygnetops/react-test npm test
 
+      - name: Generate build number
+        id: buildnumber
+        uses: einaregilsson/build-number@v3
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
 
@@ -23,8 +29,8 @@ jobs:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
           application_name: docker-app1
-          environment_name: Dockerapp1-env
+          environment_name: Dockerapp1-env2
           existing_bucket_name: elasticbeanstalk-us-east-2-306613870728
           region: us-east-2
-          version_label: ${{ github.sha }}
+          version_label: docker-app1-${{ steps.buildnumber.outputs.build_number }}
           deployment_package: deploy.zip
