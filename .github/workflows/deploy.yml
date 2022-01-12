@@ -21,8 +21,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Run tests
-        - run: docker build -t cygnetops/react-test -f ./frontend/Dockerfile ./frontend
-        - run: docker run -e CI=true cygnetops/react-test npm test
+        run: docker build -t cygnetops/react-test -f ./frontend/Dockerfile ./frontend
+        run: docker run -e CI=true cygnetops/react-test npm test
 
       - name: Build and push
         uses: docker/build-push-action@v2
