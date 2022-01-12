@@ -5,7 +5,7 @@
     "key": "dockercfg"
   },
   "Image": {
-      "Name": "docker-app1/docker-app1:latest",
+      "Name": "ahernandez96/docker-app1:latest",
       "Update": "true"
   },
   "Ports": [
