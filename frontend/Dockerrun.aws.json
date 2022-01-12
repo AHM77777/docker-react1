@@ -2,7 +2,7 @@
   "AWSEBDockerrunVersion": "1",
   "Authentication": {
     "bucket": "docker-app1-bucket",
-    "key": "dockercfg"
+    "key": ".dockercfg"
   },
   "Image": {
       "Name": "ahernandez96/docker-app1:latest",
